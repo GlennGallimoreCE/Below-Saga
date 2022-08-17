@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Below❤️Saga</title>
+        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Mono:wght@200&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="textTitle">
+        
+        <h2 class="belowSagaTitle">BelowSaga</h2>
+        <h5 class="inspiredBy">Inspired by Undertale</h5>
+        <h6 class="instructions">Use the arrow keys to move, collect <span id="health">🥗</span> to restore bits of health!</h6>
+    </div>
+
+
+        <div id="area" class="battleGrid">
+
+          
+          <!-- Divs stack upon one another, it's why HTML games are done in grids.-->
+          <div id="bars" class="bars"></div>
+          <!--<div id="hole" class="hole"></div>-->
+          <div id="bars1" class="bars1"></div>
+          <div id="bars2" class="bars2"></div>
+          <div id="bars3" class="bars3"></div>
+            <div id="you" class="playerIcon"></div>
+          
+ 
+        </div>
+        
+    <div class="scoreText">
+        <h3>SCORE: <span id="yourScore">0</span></h3>
+        <h3>HP: <span id="hitPoints">100</span>/100</h3>
+    </div>
+
+    <div class="buttonInterface">
+      <button id="buttons" class="reset">✖RESET</button>
+      <button id="buttons" class="scores">♕Scores</button>
+      <button id="buttons" class="github">☀GitHub</button>
+      <button id="buttons" class="pause">⌚PAUSE</button>
+    </div>
+
+
+
+  <script src="bars.js"></script>
+	<script src="index.js"></script>
+  
+  </body>
+</html>
