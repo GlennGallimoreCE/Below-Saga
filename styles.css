@@ -7,6 +7,7 @@
 
 body {
     background-color: black;
+
     
 }
 
@@ -26,6 +27,7 @@ body {
 
 
 .inspiredBy, .instructions {
+    padding: 1rem;
     color: whitesmoke;
     font-family: 'Press Start 2P', cursive;
 }
@@ -42,12 +44,14 @@ body {
     margin: auto;
     width: 600px;
     height: 450px;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(0, 0, 0, 0.5);
+    background-image: url(./images/retroBG.png);
+    background-size: cover;
+    
     overflow: hidden;
     border: 15px solid white;
     border-radius: 10px;
-    
-    
+    position: relative;  /*This is important for the absolute vertical divs to stay on the grid when window resizes*/    
     
 }
 /*------ obstacles -----------------------------------------------------*/
@@ -127,20 +131,63 @@ body {
     position: relative;
     width: 25px;
     height: 25px;
+}
 
 
+
+.bars4 {
     
+    width: 200px;
+    height: 20px;
+    background-color: white;
+    top: 0px;
+    left: 200px;
+    position: absolute;
+    animation: block4 8s linear infinite;
+    animation-direction: alternate;
+
+}
+
+@keyframes block4 {
+    100% {top:0px}
+    0% {top:580px}
+}
+
+.bars5 {
     
+    width: 200px;
+    height: 20px;
+    background-color: white;
+    top: 0px;
+    position: absolute;
+    animation: block5 8s linear infinite;
+    
+
 }
 
-.animate {
-    animation: moveUp 500ms infinite; 
+@keyframes block5 {
+    100% {top:0px}
+    0% {top:580px}
 }
 
-@keyframes moveUp {
-    0% {margin-top: 1%;}
-    100%{margin-top: 3%;}
+.bars6 {
+    
+    width: 200px;
+    height: 20px;
+    background-color: white;
+    top: 0px;
+    left: 400px;
+    position: absolute;
+    animation: block6 8s linear infinite;
+    
+
 }
+
+@keyframes block6 {
+    0% {top:0px}
+    100% {top:580px}
+}
+
 
 
 /*------ rest of the game -----------------------------------------------------*/
@@ -171,6 +218,9 @@ body {
     font-family: 'Press Start 2P', cursive;
 }       
 
+
+
+
 .buttonInterface {
     margin: 1rem;
     display: flex;
@@ -187,10 +237,7 @@ body {
     text-align: center;
     font-family: 'Roboto Mono';
     border: 2px solid orange;
-    font-size: 2rem;
-    
-    
-    
+    font-size: 2rem;  
 }
 
 #buttons a {
@@ -205,6 +252,29 @@ body {
     cursor: pointer;
 }
 
+#ptnbtn {
+    background-color: black;
+    padding: auto;
+    width: 150px;
+    height: 60px;
+    color: orange;
+    text-align: center;
+    font-family: 'Roboto Mono';
+    border: 2px solid orange;
+    font-size: 2rem;  
+}
+
+#ptnbtn a {
+    text-decoration: none;
+    color: orange;
+}
+
+#ptnbtn:hover {
+    background-color: rgb(49, 184, 94);
+    border: 2px solid rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}
 
 
 

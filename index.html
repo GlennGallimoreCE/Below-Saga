@@ -18,7 +18,7 @@
         
         <h2 class="belowSagaTitle">BelowSaga</h2>
         <h5 class="inspiredBy">Inspired by Undertale</h5>
-        <h6 class="instructions">Use arrow keys to move.</h6>
+        <h6 class="instructions">Use arrow keys to move.  Every 1000 points, you recover 1 ♠Ptn.</h6>
     </div>
 
     <div id="gameGrid">
@@ -28,14 +28,16 @@
           
           <!-- Divs stack upon one another, it's why HTML games are done in grids.-->
           
-          <div id="bars" class="bars"></div>
+          <div id="bars" class="bars wrap"></div>
           <!--<div id="hole" class="hole"></div>-->
-          <div id="bars1" class="bars1"></div>
+          <div id="bars1" class="bars1 wrap"></div>
           
           <div id="bars2" class="bars2"></div>
-          <div id="bars3" class="bars3"></div>
-          <div id="you" class="playerIcon"></div>
-    
+          <div id="bars3" class="bars3 wrap" ></div>
+          <div id="you" class="playerIcon wrap"></div>
+          <div id="bars4" class="bars4 wrap"></div>
+          <div id="bars5" class="bars5 wrap"></div>
+          <div id="bars6" class="bars6 wrap"></div>
  
         </div>
         <div id="GameOver" class="screen" style="display:none">
@@ -50,20 +52,21 @@
         <h3>SCORE: <span id="yourScore">0</span></h3>
 
         <h3>HP: <span id="hitPoints">100</span>/100</h3>
+        
     </div>
 
     <div class="buttonInterface">
       <button id="buttons" class="reset">✖RESET</button>
-      <button id="buttons" class="potion">♠Ptn:<span id="potionId">3</span></button>
+      <button id="ptnbtn" class="potion" onclick="potions()">♠Ptn:<span id="potionId">3</span></button>
       <button id="buttons" class="scores">♕Scores</button>
       <button id="buttons" class="github"><a href="https://github.com/GlennGallimoreCE/Below-Saga">☀GitHub</a></button>
       
     </div>
 
 
-
+  <script src="interface.js"></script>
 
 	<script src="index.js"></script>
   
   </body>
-</html>
+</html> <!-- onclick="potions()"-->

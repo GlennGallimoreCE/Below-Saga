@@ -8,16 +8,12 @@ const enemyBars = document.querySelector('#bars');
 const enemyBars1 = document.querySelector('#bars1');
 const enemyBars2 = document.querySelector('#bars2');
 const enemyBars3 = document.querySelector('#bars3');
-const ptn = document.getElementsByClassName('potion')
-const ptnText = document.getElementById('#potionId');
+
 const yourScore = document.querySelector('#yourScore');
 const hpText = document.querySelector('#hitPoints');
 
 let hp = 100;
 let score = 0;
-let potionCount = 3;
-
-
 
 
 
@@ -83,7 +79,9 @@ let checkHit = setInterval(function() {
     let obj3 = document.getElementById('bars1').getBoundingClientRect();
     let obj4 = document.getElementById('bars2').getBoundingClientRect();
     let obj5 = document.getElementById('bars3').getBoundingClientRect();
-    
+    let obj6 = document.getElementById('bars4').getBoundingClientRect();
+    let obj7 = document.getElementById('bars5').getBoundingClientRect();
+    let obj8 = document.getElementById('bars6').getBoundingClientRect();
 
     if (obj1.x + obj1.width >= obj2.x &&
         obj1.x <= obj2.x + obj2.width &&
@@ -121,6 +119,32 @@ let checkHit = setInterval(function() {
         document.getElementById('you').style.backgroundColor = "#8B0000";
         console.log("touching");
 
+    } else if (obj1.x + obj1.width >= obj6.x &&
+        obj1.x <= obj6.x + obj6.width &&
+        obj1.y + obj1.height >= obj6.y &&
+        obj1.y <= obj6.y + obj6.height){
+            hpText.textContent = hp;
+            hp -= 1;
+        document.getElementById('you').style.backgroundColor = "#8B0000";
+        console.log("touching");
+
+    } else if (obj1.x + obj1.width >= obj7.x &&
+        obj1.x <= obj7.x + obj7.width &&
+        obj1.y + obj1.height >= obj7.y &&
+        obj1.y <= obj7.y + obj7.height){
+            hpText.textContent = hp;
+            hp -= 1;
+        document.getElementById('you').style.backgroundColor = "#8B0000";
+        console.log("touching");
+
+    } else if (obj1.x + obj1.width >= obj8.x &&
+        obj1.x <= obj8.x + obj8.width &&
+        obj1.y + obj1.height >= obj8.y &&
+        obj1.y <= obj8.y + obj8.height){
+            hpText.textContent = hp;
+            hp -= 1;
+        document.getElementById('you').style.backgroundColor = "#8B0000";
+        console.log("touching");
 
 
     } else {
@@ -133,23 +157,12 @@ let checkHit = setInterval(function() {
 
 
 
-//Accumulating points
-//For every second the game is up and your HP is above 1, you get 10 points.
-
-let playerScore = setInterval(function() {
-    yourScore.textContent = score;
-    score += 10;
-}, 1000);
-
-//Increased difficulty
-//The more points you gain, the more obstacles appear.
-//Also the border and bars change color
-
 
 //Game Over = or, player HP falls to 0.
 let gameOver = setInterval(function() {
     
     if (hp === 0) {
+        document.getElementById("ptnbtn").disabled = true;
         hpText.textContent = hp;
         hp = 0;
         clearInterval(playerScore);
@@ -170,19 +183,37 @@ let gameOver = setInterval(function() {
 }, 10);
 
 
-//Potions -- to give the player an extra edge to heal
-ptn.document.addEventListener("click", potions);
-function potions() {
+//Accumulating points
+//For every second the game is up and your HP is above 1, you get 10 points.
+
+let playerScore = setInterval(function() {
+    yourScore.textContent = score;
+    if(document.hasFocus() == true) { //This helps with a bug that the score keeps going every second when on another tab.
+        score += 10;
+    }
     
-    console.log("You take a potion, 15 HP restored!")
-    if (potionCount >= 0 ) {
-        ptnText.textContent = potionCount;
-        potionCount -= 1;
-        
-        hp += 15;
-    } else {
-        return;
+//You cannot take damage when tabbed out, so this seemed fair.
+    for (let score = 0; score < 10; score++) {
+
+    }
+    if (score % 1000 === 0 && document.hasFocus() == true) {
+        ptnText.textContent = (potionCount += 1); //after every 990 points, you get one potion back. 
     }
 
-};
+
+}, 1000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
